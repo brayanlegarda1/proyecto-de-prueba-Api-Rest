@@ -1,46 +1,43 @@
-package com.application.rest.persistence.implementation;
+package com.application.rest.service.implementation;
 
 import com.application.rest.entities.Product;
 import com.application.rest.persistence.IProductDAO;
-import com.application.rest.repository.ProductRepository;
+import com.application.rest.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-@Component
-public class ProductDAOImpl implements IProductDAO {
+@Service
+public class ProductServiceImpl implements IProductService {
 
     @Autowired
-    private ProductRepository productRepository;
-
-
+    private IProductDAO iProductDAO;
 
     @Override
     public List<Product> findAll() {
-        return (List<Product>) productRepository.findAll() ;
+        return iProductDAO.findAll();
     }
 
     @Override
     public Optional<Product> findById(Long id) {
-        return productRepository.findById(id);
+        return iProductDAO.findById(id);
     }
 
     @Override
     public List<Product> findByPriceInRange(BigDecimal minPrice, BigDecimal maxPrice) {
-
-        return productRepository.findProductByPriceInRange(minPrice,maxPrice);
+        return findByPriceInRange(minPrice,maxPrice);
     }
 
     @Override
     public void save(Product product) {
-        productRepository.save(product);
+        iProductDAO.save(product);
     }
 
     @Override
     public void deleteById(Long id) {
-        productRepository.deleteById(id);
+        iProductDAO.deleteById(id);
     }
 }
