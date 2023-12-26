@@ -20,7 +20,7 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
     /*
        Con la Notación Query es simplemente nosotros le decimos a JPA una consulta JPQL->( similar a sql) que será ejecutada en la base de datos
     */
-    @Query("SELECT p FROM product p WHERE p.price BETWEEN ?1 AND ?2 ")
+    @Query("SELECT p FROM Product p WHERE p.price BETWEEN ?1 AND ?2")
     List<Product> findProductByPriceInRange(BigDecimal minPrice, BigDecimal maxPrice); // Consulta Query
 
 

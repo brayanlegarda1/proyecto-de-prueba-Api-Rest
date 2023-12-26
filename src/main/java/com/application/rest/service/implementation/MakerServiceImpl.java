@@ -2,7 +2,7 @@ package com.application.rest.service.implementation;
 
 import com.application.rest.entities.Maker;
 import com.application.rest.persistence.IMakerDAO;
-import com.application.rest.service.IMakerSerivice;
+import com.application.rest.service.IMakerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MakerServiceImpl implements IMakerSerivice {
+public class MakerServiceImpl implements IMakerService {
 
     @Autowired
     private IMakerDAO iMakerDAO;

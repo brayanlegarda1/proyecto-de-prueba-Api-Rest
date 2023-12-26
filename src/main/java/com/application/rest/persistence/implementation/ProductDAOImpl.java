@@ -13,14 +13,13 @@ import java.util.Optional;
 @Component
 public class ProductDAOImpl implements IProductDAO {
 
+
     @Autowired
     private ProductRepository productRepository;
 
-
-
     @Override
     public List<Product> findAll() {
-        return (List<Product>) productRepository.findAll() ;
+        return (List<Product>) productRepository.findAll();
     }
 
     @Override
@@ -30,8 +29,7 @@ public class ProductDAOImpl implements IProductDAO {
 
     @Override
     public List<Product> findByPriceInRange(BigDecimal minPrice, BigDecimal maxPrice) {
-
-        return productRepository.findProductByPriceInRange(minPrice,maxPrice);
+        return productRepository.findProductByPriceInRange(minPrice, maxPrice);
     }
 
     @Override
